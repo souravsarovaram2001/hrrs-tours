@@ -324,36 +324,52 @@
         </div>
     </div>
 
-    <script>
+        <script>
+        // Data provided in the prompt
         const hotelData = {
-            1: { city: "Guwahati", name: "Vivanta Guwahati", type: "Luxury Hotel + Spa" },
-            2: { city: "Kaziranga", name: "IORA – The Retreat", type: "Luxury Jungle Resort" },
-            3: { city: "Shillong", name: "Ri Kynjai", type: "Boutique Lakeside Resort" },
-            4: { city: "Cherrapunji", name: "Polo Orchid Resort", type: "Premium Nature Resort" },
-            5: { city: "Kohima", name: "Hotel Vivor", type: "Premium Boutique Hotel" },
-            7: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
-            9: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
-            11: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
-            13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
+        1: { city: "Guwahati", name: "Vivanta Guwahati", type: "Luxury Hotel + Spa" },
+        2: { city: "Kaziranga", name: "IORA – The Retreat", type: "Luxury Jungle Resort" },
+        3: { city: "Shillong", name: "Ri Kynjai", type: "Boutique Lakeside Resort" },
+        4: { city: "Cherrapunji", name: "Polo Orchid Resort", type: "Premium Nature Resort" },
+        5: { city: "Kohima", name: "Hotel Vivor", type: "Premium Boutique Hotel" },
+        6: { city: "Kohima", name: "Hotel Vivor", type: "Hill-view stay" },
+        7: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
+        8: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
+        9: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
+        10: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
+        11: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
+        12: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
+        13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" },
+        14: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
         };
-
+        
         const packageItineraries = {
-            grand: [
-                { day: 1, title: "Guwahati Arrival", img: "river bramhmaputra.jpg", desc: "Welcome dinner and Brahmaputra sunset cruise." },
-                { day: 2, title: "Kaziranga Safari", img: "Lamjao National Park.jpg", desc: "Explore the world's largest one-horned rhino population." },
-                { day: 4, title: "Cherrapunji Trails", img: "cherrapunji.jpg", desc: "Double-decker living root bridges and cloud-forest treks." },
-                { day: 6, title: "Dzukou Valley", img: "Dzukou vally.jpg", desc: "Breathtaking trek through alpine meadows." },
-                { day: 8, title: "Loktak Lake", img: "loktak lake.jpg", desc: "Boat ride on the floating phumdis." },
-                { day: 12, title: "Neermahal Palace", img: "NEERMAHAL LAKE PALACE.jpg", desc: "A boat ride to India's unique water palace." },
-                { day: 14, title: "Tsomgo Lake", img: "TSOMGO LAKE.jpg", desc: "Final high-altitude excursion to Tsomgo." }
-            ],
-            highlights: [
-                { day: 1, title: "Guwahati Start", img: "river bramhmaputra.jpg", desc: "Gateway to the Northeast." },
-                { day: 2, title: "Kaziranga Jungle", img: "Lamjao National Park.jpg", desc: "Rhino safari and tea garden walks." },
-                { day: 4, title: "Root Bridges", img: "cherrapunji.jpg", desc: "Living architecture of Meghalaya." },
-                { day: 6, title: "Dzukou Peak", img: "Dzukou vally.jpg", desc: "The signature alpine trek of the East." }
-            ],
-            luxury: []
+        grand: [
+        { day: 1, title: "Guwahati Arrival", img: "river bramhmaputra.jpg", desc: "Welcome dinner with Assamese cuisine and Brahmaputra cruise." },
+        { day: 2, title: "Guwahati to Kaziranga", img: "T garden.jpg", desc: "Scenic drive to Kaziranga, tea garden walk, and tribal interaction." },
+        { day: 3, title: "Kaziranga to Shillong", img: "lake boat.jpg", desc: "Drive to Shillong with a stop at Umiam Lake." },
+        { day: 4, title: "Shillong to Cherrapunji", img: "cherrapunji.jpg", desc: "Living Root Bridge trek and Nohkalikai Falls." },
+        { day: 5, title: "Cherrapunji to Kohima", img: "naga heritage village.jpg", desc: "Visit Kohima War Cemetery and Naga Heritage Village." },
+        { day: 6, title: "Dzukou Valley Trek", img: "Dzukou vally.jpg", desc: "Full day guided trek through the alpine meadows of Dzukou." },
+        { day: 7, title: "Kohima to Imphal", img: "manipuri classical Dsnce.jpg", desc: "Evening Manipuri classical dance performance." },
+        { day: 8, title: "Loktak Lake", img: "loktak lake.jpg", desc: "Boat ride through floating phumdis at Keibul Lamjao National Park." },
+        { day: 9, title: "Imphal to Aizawl", img: "Sunset tea overlooking rolling hills.jpg", desc: "Flight to Mizoram and sunset tea overlooking hills." },
+        { day: 10, title: "Reiek Nature Day", img: "REIEK NATURE DAY.jpg", desc: "Nature walk and traditional Mizo lunch at Reiek Village." },
+        { day: 11, title: "Aizawl to Agartala", img: "hotel.jpg", desc: "Flight to Tripura and visit to Ujjayanta Palace." },
+        { day: 12, title: "Neermahal Lake Palace", img: "NEERMAHAL LAKE PALACE.jpg", desc: "Boat ride to India's only water palace on Rudrasagar Lake." },
+        { day: 13, title: "Agartala to Gangtok", img: "GANGTOK.jpg", desc: "Flight to Bagdogra and drive to the luxury mountain capital." },
+        { day: 14, title: "Tsomgo Lake", img: "TSOMGO LAKE.jpg", desc: "Excursion to the high-altitude alpine lake." }
+        ],
+        highlights: [
+        { day: 1, title: "Guwahati Arrival", img: "river bramhmaputra.jpg", desc: "Arrival and local sights." },
+        { day: 2, title: "Kaziranga Wildlife", img: "Lamjao National Park.jpg", desc: "Rhino spotting and jungle lodge stay." },
+        { day: 3, title: "Shillong Hills", img: "lake boat.jpg", desc: "Umiam Lake viewpoints." },
+        { day: 4, title: "Cherrapunji Nature", img: "meghalaya.jpg", desc: "Living Root Bridges and waterfalls." },
+        { day: 5, title: "Nagaland Heritage", img: "naga heritage village.jpg", desc: "Kohima history and culture." },
+        { day: 6, title: "Dzukou Valley", img: "Dzukou vally.jpg", desc: "The signature nature highlight trek." },
+        { day: 7, title: "Departure", img: "GANGTOK.jpg", desc: "End of the highlights tour." }
+        ],
+        luxury: [] // Will mirror Grand but with 'Luxury' label in JS
         };
         packageItineraries.luxury = [...packageItineraries.grand];
 
