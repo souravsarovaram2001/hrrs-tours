@@ -3,410 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRRS Tours | Premium Northeast India Specialist</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>HRRS TOURS | Northeast India Premium Specialist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: #0a0f18; color: #FAF6EE; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-
-        /* ── NAV ── */
-        .top-nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%; height: 68px;
-            background: rgba(10, 15, 24, 0.88);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(201,144,60,0.2);
-            transition: background 0.3s;
+        :root {
+            --primary: #2d5a27;
+            --secondary: #d4a373;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
         }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: #fff; letter-spacing: 2px; text-decoration: none; }
-        .nav-logo span { color: #C9903C; }
-        .nav-links-list { display: flex; gap: 2.2rem; list-style: none; }
-        .nav-links-list a { color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
-        .nav-links-list a:hover { color: #E8C97A; }
-        .nav-book-btn { background: #C9903C; color: #0F1724; padding: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; text-decoration: none; transition: all 0.2s; border: 2px solid #C9903C; }
-        .nav-book-btn:hover { background: transparent; color: #C9903C; }
 
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh; position: relative;
-            display: flex; align-items: center; justify-content: center; text-align: center;
-            background: url('Dzukou vally.jpg') center/cover no-repeat fixed;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+        /* Navigation */
+        nav { background: var(--dark); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: var(--white); font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+        .logo span { color: var(--secondary); }
+
+        /* Hero Section */
+        header { 
+            height: 80vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('meghalaya.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white);
         }
-        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,13,22,0.55) 0%, rgba(8,13,22,0.42) 50%, rgba(8,13,22,0.78) 100%); }
-        .hero-content-box { position: relative; z-index: 2; padding: 0 5%; max-width: 900px; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.9rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #C9903C; margin-bottom: 1.8rem; animation: fadeUp 0.8s ease both; }
-        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: #C9903C; opacity: 0.5; }
-        .hero-main-title { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 0.4rem; animation: fadeUp 0.8s 0.15s ease both; }
-        .hero-italic-line { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 400; font-style: italic; color: #E8C97A; line-height: 1.1; margin-bottom: 1.4rem; animation: fadeUp 0.8s 0.2s ease both; }
-        .hero-desc { font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(240,230,211,0.82); line-height: 1.8; max-width: 680px; margin: 0 auto 1rem; animation: fadeUp 0.8s 0.3s ease both; }
-        .hero-tagline { font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; color: #7eccc0; font-weight: 600; margin-bottom: 2.8rem; animation: fadeUp 0.8s 0.38s ease both; }
-        .hero-btn-row { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.8s 0.48s ease both; }
-        .btn-gold { background: #C9903C; color: #0F1724; padding: 1rem 2.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; border: 2px solid #C9903C; text-decoration: none; transition: all 0.2s; display: inline-block; }
-        .btn-gold:hover { background: transparent; color: #C9903C; }
-        .btn-outline-white { background: transparent; color: rgba(255,255,255,0.88); padding: 1rem 2.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; border: 2px solid rgba(255,255,255,0.35); text-decoration: none; transition: all 0.2s; display: inline-block; }
-        .btn-outline-white:hover { border-color: #fff; color: #fff; }
-        .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; animation: bounce 2.5s ease-in-out infinite; z-index: 2; }
-        .hero-scroll::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(201,144,60,0.6), transparent); }
+        header h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        header p { font-size: 1.2rem; max-width: 600px; }
 
-        /* ── ABOUT ── */
-        .about-section { position: relative; padding: 7rem 5%; background: url('hotel and nature view.jpg') center/cover no-repeat fixed; }
-        .about-section::before { content: ''; position: absolute; inset: 0; background: rgba(4,12,8,0.84); }
-        .about-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .section-label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: #C9903C; display: block; margin-bottom: 0.7rem; }
-        .section-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.2rem; }
-        .stat-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,144,60,0.25); border-radius: 4px; padding: 1.8rem 1rem; backdrop-filter: blur(8px); }
+        /* Vision, Mission, USP */
+        .intro-section { padding: 5rem 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; background: var(--white); }
+        .card { padding: 2rem; border-top: 4px solid var(--primary); background: #f9f9f9; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; }
 
-        /* ── PHILOSOPHY ── */
-        .philosophy-section { background: #0F1724; padding: 7rem 5%; }
-        .vmu-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; }
+        /* Tours Section */
+        .section-title { text-align: center; padding: 4rem 0 2rem; font-size: 2.5rem; color: var(--primary); }
+        .tours-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 10% 5rem; }
+        .tour-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; }
+        .tour-card:hover { transform: translateY(-10px); }
+        .tour-img { height: 200px; background-size: cover; background-position: center; }
+        .tour-content { padding: 1.5rem; }
+        .tour-price { color: var(--secondary); font-weight: bold; font-size: 1.2rem; }
+        .view-btn { 
+            display: inline-block; width: 100%; padding: 0.8rem; background: var(--primary); color: var(--white); 
+            text-align: center; border: none; cursor: pointer; margin-top: 1rem; font-weight: bold; border-radius: 4px;
+        }
 
-        /* ── TOURS ── */
-        .tours-section { position: relative; padding: 7rem 5%; background: url('boutique hotel property.jpg') center/cover no-repeat fixed; }
-        .tours-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,12,20,0.90), rgba(10,15,24,0.94)); }
-        .pkg-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; backdrop-filter: blur(12px); transition: transform 0.3s, border-color 0.3s, background 0.3s; }
-        .pkg-card:hover { transform: translateY(-6px); border-color: rgba(201,144,60,0.5); background: rgba(255,255,255,0.11); }
-        .pkg-card.featured { border: 2px solid #C9903C; background: rgba(201,144,60,0.09); transform: scale(1.04); }
+        /* Modal / Itinerary System */
+        .modal { 
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.9); overflow-y: auto;
+        }
+        .modal-content { 
+            background: var(--white); margin: 5% auto; width: 90%; max-width: 800px; border-radius: 12px; 
+            position: relative; overflow: hidden;
+        }
+        .close-btn { position: absolute; right: 20px; top: 20px; font-size: 2rem; color: var(--white); cursor: pointer; z-index: 2100; }
+        
+        .itinerary-slider { position: relative; text-align: center; }
+        .day-slide { display: none; padding: 2rem; }
+        .day-slide.active { display: block; }
+        .slide-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; }
+        .nav-arrows { position: absolute; top: 40%; width: 100%; display: flex; justify-content: space-between; padding: 0 10px; }
+        .arrow { background: rgba(0,0,0,0.5); color: white; border: none; padding: 1rem; cursor: pointer; border-radius: 50%; }
+        
+        .hotel-info { margin-top: 1rem; padding: 1rem; background: #eef5ee; border-left: 5px solid var(--primary); text-align: left; }
 
-        /* ── EXPERIENCES ── */
-        .exp-section { position: relative; padding: 7rem 5%; background: url('cherrapunji.jpg') center/cover no-repeat fixed; }
-        .exp-section::before { content: ''; position: absolute; inset: 0; background: rgba(3,14,8,0.82); }
-        .exp-card { position: relative; overflow: hidden; border-radius: 8px; height: 340px; cursor: pointer; }
-        .exp-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
-        .exp-card:hover img { transform: scale(1.08); }
-        .exp-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,14,8,0.94) 0%, rgba(4,14,8,0.2) 55%, transparent 100%); }
-        .exp-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
-
-        /* ── DIFFERENCE ── */
-        .diff-section { background: #f5f0e8; padding: 5rem 5%; }
-        .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #ddd6c8; border-radius: 4px; overflow: hidden; }
-        .diff-item { padding: 2.5rem 1.8rem; text-align: center; background: #fff; border-right: 1px solid #ddd6c8; }
-        .diff-item:last-child { border-right: none; }
-
-        /* ── FOOTER ── */
-        .footer-bg { position: relative; background: url('hotel in tea farm.jpg') center/cover no-repeat; }
-        .footer-bg::before { content: ''; position: absolute; inset: 0; background: rgba(3,18,10,0.93); }
-        .footer-inner { position: relative; z-index: 1; padding: 6rem 5%; text-align: center; }
-
-        /* ── MODAL ── */
-        .modal { display: none; position: fixed; z-index: 300; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); overflow-y: auto; }
-
-        .gold-strip { height: 3px; background: linear-gradient(to right, transparent, #C9903C, #E8C97A, #C9903C, transparent); }
-
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(7px); } }
-
-        @media (max-width: 1024px) { .diff-grid { grid-template-columns: 1fr 1fr; } .diff-item { border-bottom: 1px solid #ddd6c8; } .diff-item:nth-child(2) { border-right: none; } }
-        @media (max-width: 768px) { .nav-links-list { display: none; } .vmu-grid { grid-template-columns: 1fr; } .pkg-card.featured { transform: scale(1); } .diff-grid { grid-template-columns: 1fr; } .diff-item { border-right: none; } }
+        footer { background: var(--dark); color: var(--white); padding: 3rem 10%; text-align: center; }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav" id="topnav">
-        <a href="#" class="nav-logo">HRRS <span>TOURS</span></a>
-        <ul class="nav-links-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#philosophy">Our Purpose</a></li>
-            <li><a href="#tours">Packages</a></li>
-            <li><a href="#experiences">Experiences</a></li>
-        </ul>
-        <a href="#contact" class="nav-book-btn">Book Now</a>
-    </nav>
+<nav>
+    <div class="logo">HRRS<span> TOURS</span></div>
+</nav>
 
-    <header class="hero" id="home">
-        <div class="hero-content-box">
-            <div class="hero-eyebrow">Hills · River · Road · Services</div>
-            <div class="hero-main-title">Explore Northeast India</div>
-            <div class="hero-italic-line">Like Never Before</div>
-            <p class="hero-desc">Curated, immersive journeys into India's most untouched wilderness — across seven states of extraordinary wildlife, tribal culture, and alpine landscapes.</p>
-            <p class="hero-tagline">Slow · Responsible · Immersive</p>
-            <div class="hero-btn-row">
-                <a href="#tours" class="btn-gold">View Our Packages</a>
-                <a href="#contact" class="btn-outline-white">Plan My Journey</a>
-            </div>
-        </div>
-        <div class="hero-scroll">Scroll</div>
-    </header>
+<header>
+    <h1>Slow, Responsible & Immersive</h1>
+    <p>Premium Inbound Tour Operator for Northeast India. Explore the Seven Sisters with those who know the land best.</p>
+</header>
 
-    <div class="gold-strip"></div>
+<section class="intro-section">
+    <div class="card">
+        <h3><i class="fas fa-eye"></i> Vision</h3>
+        <p>Establish NE India as a globally recognised premium experiential destination.</p>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-bullseye"></i> Mission</h3>
+        <p>Curated small-group journeys that generate community value and transformative traveller connections.</p>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-star"></i> USP</h3>
+        <p>India's premium NE India specialist, tribal guide networks, eco-lodges, full permit expertise.</p>
+    </div>
+</section>
 
-    <section class="about-section" id="about">
-        <div class="about-inner">
-            <span class="section-label">India's Only Premium NE Specialist</span>
-            <h2 class="section-title">Where the Wild Northeast Begins</h2>
-            <p style="color:rgba(240,230,211,0.72);font-size:1.05rem;line-height:1.85;max-width:660px;margin:0 auto 3.5rem;">
-                HRRS Tours specializes in small-group journeys that bridge global travelers with the untouched majesty of Northeast India.
-            </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                <div class="stat-box">
-                    <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">16+</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Naga Tribes</p>
-                </div>
-                <div class="stat-box">
-                    <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">30+</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Tribal Guides</p>
-                </div>
-                <div class="stat-box">
-                    <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">100%</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Plastic Free</p>
-                </div>
-                <div class="stat-box">
-                    <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">15</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Max Group Size</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gold-strip"></div>
-
-    <section id="philosophy" class="philosophy-section">
-        <div class="vmu-grid">
-            <div style="background:#1B5E42;padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center;">
-                <div style="font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:#fff;line-height:1;">HRRS</div>
-                <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#C9903C;letter-spacing:8px;margin-bottom:1rem;">TOURS</div>
-                <div style="height:2px;background:#C9903C;width:80%;margin-bottom:1.2rem;"></div>
-                <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(240,230,211,0.8);font-size:1rem;">Hills · River · Road · Services</p>
-            </div>
-            <div style="background:#1A2640;padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:2.5rem;">
-                <div style="padding-left:1.5rem;border-left:4px solid #D4682A;">
-                    <h4 style="font-size:0.9rem;font-weight:700;color:#D4682A;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">Vision</h4>
-                    <p style="font-size:1.1rem;color:rgba(240,230,211,0.82);">Establish NE India as a globally recognised premium experiential destination.</p>
-                </div>
-                <div style="padding-left:1.5rem;border-left:4px solid #2D7D6F;">
-                    <h4 style="font-size:0.9rem;font-weight:700;color:#2D7D6F;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">Mission</h4>
-                    <p style="font-size:1.1rem;color:rgba(240,230,211,0.82);">Curated small-group journeys that generate community value and transformative traveller connections.</p>
-                </div>
-                <div style="padding-left:1.5rem;border-left:4px solid #C9903C;">
-                    <h4 style="font-size:0.9rem;font-weight:700;color:#C9903C;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">USP</h4>
-                    <p style="font-size:1.1rem;color:rgba(240,230,211,0.82);">India's premium NE India specialist, tribal guide networks, eco-lodges, full permit expertise.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gold-strip"></div>
-
-    <section class="tours-section" id="tours">
-        <div class="tours-inner">
-            <div style="text-align:center;margin-bottom:3.5rem;">
-                <span class="section-label">Curated Collections</span>
-                <h2 class="section-title">Three Formats. One Region. Infinite Depth.</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8 items-start">
-                <div class="pkg-card">
-                    <img src="cherrapunji.jpg" style="width:100%;height:220px;object-fit:cover;">
-                    <div style="padding:1.8rem;">
-                        <span style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9903C;">Entry Point</span>
-                        <h3 style="font-size:1.5rem;color:#fff;margin:0.6rem 0 0.3rem;">NE Highlights</h3>
-                        <p style="font-size:0.82rem;color:rgba(240,230,211,0.5);font-style:italic;margin-bottom:1.2rem;">7 Days · 3 States</p>
-                        <p style="font-size:1.9rem;font-weight:700;color:#E8C97A;">₹1,49,000</p>
-                        <button onclick="openModal('highlights')" class="btn-gold mt-6" style="width:100%;">View Itinerary</button>
-                    </div>
-                </div>
-                <div class="pkg-card featured">
-                    <img src="Dzukou vally.jpg" style="width:100%;height:220px;object-fit:cover;">
-                    <div style="padding:1.8rem;">
-                        <span style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9903C;">Flagship</span>
-                        <h3 style="font-size:1.5rem;color:#fff;margin:0.6rem 0 0.3rem;font-style:italic;">Grand Northeast</h3>
-                        <p style="font-size:0.82rem;color:rgba(240,230,211,0.5);font-style:italic;margin-bottom:1.2rem;">15 Days · 7 States</p>
-                        <p style="font-size:1.9rem;font-weight:700;color:#E8C97A;">₹3,28,000</p>
-                        <button onclick="openModal('grand')" class="btn-gold mt-6" style="width:100%;background:#1B5E42;border-color:#1B5E42;color:#fff;">View Itinerary</button>
-                    </div>
-                </div>
-                <div class="pkg-card">
-                    <img src="boutique hotel.jpg" style="width:100%;height:220px;object-fit:cover;">
-                    <div style="padding:1.8rem;">
-                        <span style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D4682A;">Top Tier</span>
-                        <h3 style="font-size:1.5rem;color:#fff;margin:0.6rem 0 0.3rem;">Private Luxury</h3>
-                        <p style="font-size:0.82rem;color:rgba(240,230,211,0.5);font-style:italic;margin-bottom:1.2rem;">15 Days · 7 States</p>
-                        <p style="font-size:1.9rem;font-weight:700;color:#D4682A;">₹5,40,000</p>
-                        <button onclick="openModal('luxury')" class="btn-gold mt-6" style="width:100%;background:#7a3a10;border-color:#7a3a10;color:#fff;">View Itinerary</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gold-strip"></div>
-
-    <section class="exp-section" id="experiences">
-        <div class="exp-inner">
-            <div style="text-align:center;margin-bottom:3.5rem;">
-                <span class="section-label">Signature Moments</span>
-                <h2 class="section-title">Moments Found Nowhere Else</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5">
-                <div class="exp-card">
-                    <img src="hotel and nature view.jpg">
-                    <div class="exp-overlay"></div>
-                    <div class="exp-text">
-                        <div style="font-weight:700; color:#fff;">Dawn Rhino Safari</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Kaziranga · Assam</div>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <img src="cherrapunji.jpg">
-                    <div class="exp-overlay"></div>
-                    <div class="exp-text">
-                        <div style="font-weight:700; color:#fff;">Living Root Bridge Trek</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Cherrapunji · Meghalaya</div>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <img src="curated tribal performance.jpg">
-                    <div class="exp-overlay"></div>
-                    <div class="exp-text">
-                        <div style="font-weight:700; color:#fff;">Tribal Immersion</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Naga Heritage</div>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <img src="Dzukou vally.jpg">
-                    <div class="exp-overlay"></div>
-                    <div class="exp-text">
-                        <div style="font-weight:700; color:#fff;">Dzükou Valley Walk</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Nagaland Frontier</div>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <img src="GANGTOK.jpg">
-                    <div class="exp-overlay"></div>
-                    <div class="exp-text">
-                        <div style="font-weight:700; color:#fff;">Alpine Lake View</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Gangtok · Sikkim</div>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <img src="boutique hotel property.jpg">
-                    <div class="exp-overlay"></div>
-                    <div class="exp-text">
-                        <div style="font-weight:700; color:#fff;">Heritage Stays</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Traditional Luxury</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gold-strip"></div>
-
-    <section class="diff-section">
-        <div style="max-width:1100px;margin:0 auto;text-align:center;">
-            <p class="section-label">Why Book With HRRS</p>
-            <h2 class="section-title" style="color:#1a1a1a;margin-bottom:3rem;">The HRRS Difference</h2>
-            <div class="diff-grid">
-                <div class="diff-item">
-                    <div style="font-size:2.2rem;margin-bottom:1rem;">📋</div>
-                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Permit Experts</h4>
-                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">Inner Line Permits fully managed for Nagaland, Manipur, and Mizoram.</p>
-                </div>
-                <div class="diff-item">
-                    <div style="font-size:2.2rem;margin-bottom:1rem;">👥</div>
-                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Small Groups</h4>
-                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">Maximum 12–15 travellers per departure for genuine personalization.</p>
-                </div>
-                <div class="diff-item">
-                    <div style="font-size:2.2rem;margin-bottom:1rem;">🤝</div>
-                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Community Trust</h4>
-                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">30+ tribal guide partnerships and exclusive eco-lodge access.</p>
-                </div>
-                <div class="diff-item">
-                    <div style="font-size:2.2rem;margin-bottom:1rem;">🌿</div>
-                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Sustainability</h4>
-                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">Plastic-free operations and carbon-offset travel as standard.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gold-strip"></div>
-
-    <footer class="footer-bg" id="contact">
-        <div class="footer-inner">
-            <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:0.8rem;">Begin Your Expedition</h2>
-            <p style="font-style:italic;font-size:1.2rem;color:rgba(232,201,122,0.72);margin-bottom:3rem;">Let us design your perfect Northeast India journey.</p>
-            <div style="max-width:420px;margin:0 auto;">
-                <input type="text" placeholder="Your Name" class="footer-input" style="width:100%;padding:1rem;background:rgba(255,255,255,0.08);border:1px solid #C9903C;color:#fff;margin-bottom:1rem;outline:none;">
-                <input type="email" placeholder="Email Address" class="footer-input" style="width:100%;padding:1rem;background:rgba(255,255,255,0.08);border:1px solid #C9903C;color:#fff;margin-bottom:1rem;outline:none;">
-                <button class="footer-btn">Request Consultation</button>
-            </div>
-            <p style="margin-top:3.5rem;font-size:0.65rem;color:rgba(255,255,255,0.18);letter-spacing:4px;text-transform:uppercase;">Group 5 · IIM Sirmaur · 2026</p>
-        </div>
-    </footer>
-
-    <div id="itineraryModal" class="modal px-4 py-12">
-        <div style="background:#fff;max-width:860px;margin:0 auto;border-radius:4px;overflow:hidden;position:relative;">
-            <button onclick="closeModal()" style="position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:2.2rem;color:#bbb;cursor:pointer;">&times;</button>
-            <div id="modalContent" style="padding:3rem;color:#333;"></div>
+<h2 class="section-title">Exclusive Tour Packages</h2>
+<div class="tours-container">
+    <div class="tour-card">
+        <div class="tour-img" style="background-image: url('loktak lake.jpg');"></div>
+        <div class="tour-content">
+            <h3>Grand Northeast</h3>
+            <p>15 Days | 7 States</p>
+            <p class="tour-price">₹2,65,000 / person</p>
+            <button class="view-btn" onclick="openTour('grand')">View Itinerary</button>
         </div>
     </div>
 
-    <script>
-        const itineraries = {
-            highlights: {
-                title: "NE Highlights (7 Days)",
-                states: "Assam, Meghalaya, Nagaland",
-                banner: "cherrapunji.jpg",
-                days: [
-                    { d: "Day 1", h: "Vivanta Guwahati", x: "Brahmaputra Sunset Cruise" },
-                    { d: "Day 2", h: "IORA Kaziranga", x: "Wildlife Safari" },
-                    { d: "Day 3", h: "Ri Kynjai Shillong", x: "Umiam Lake View" }
-                ]
-            },
-            grand: {
-                title: "Grand Northeast (15 Days)",
-                states: "7 States of the NE",
-                banner: "Dzukou vally.jpg",
-                days: [
-                    { d: "Day 1-3", h: "Vivanta / IORA", x: "Wildlife & River Culture" },
-                    { d: "Day 4-6", h: "Ri Kynjai / Hotel Vivor", x: "Alpine Treks & Cloud Forests" }
-                ]
-            },
-            luxury: {
-                title: "Private Luxury (15 Days)",
-                states: "Full 7-State Private Expedition",
-                banner: "boutique hotel.jpg",
-                days: [
-                    { d: "Bespoke", h: "Heritage Stays", x: "Private vehicle and cultural expert throughout." }
-                ]
-            }
-        };
+    <div class="tour-card">
+        <div class="tour-img" style="background-image: url('Dzukou vally.jpg');"></div>
+        <div class="tour-content">
+            <h3>NE Highlights</h3>
+            <p>7 Days | 3 States</p>
+            <p class="tour-price">₹1,20,000 / person</p>
+            <button class="view-btn" onclick="openTour('highlights')">View Itinerary</button>
+        </div>
+    </div>
 
-        function openModal(key) {
-            const t = itineraries[key];
-            const c = document.getElementById('modalContent');
-            let daysHtml = t.days.map(d => `
-                <div style="margin-bottom:1.2rem;border-bottom:1px solid #eee;padding-bottom:1.2rem;display:flex;gap:1.5rem;">
-                    <div style="font-weight:700;color:#1B5E42;">${d.d}</div>
-                    <div>
-                        <div style="font-weight:700;">${d.x}</div>
-                        <div style="font-size:0.85rem;color:#666;">Stay: ${d.h}</div>
+    <div class="tour-card">
+        <div class="tour-img" style="background-image: url('boutique hotel property.jpg');"></div>
+        <div class="tour-content">
+            <h3>Private Luxury</h3>
+            <p>15 Days | 7 States</p>
+            <p class="tour-price">₹4,60,000 / person</p>
+            <button class="view-btn" onclick="openTour('luxury')">View Itinerary</button>
+        </div>
+    </div>
+</div>
+
+<div id="tourModal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-content" id="modalBody">
+        </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Hills River Road Services. All Rights Reserved.</p>
+    <p><small>Assam | Meghalaya | Nagaland | Manipur | Mizoram | Tripura | Sikkim</small></p>
+</footer>
+
+<script>
+    // Data provided in the prompt
+    const hotelData = {
+        1: { city: "Guwahati", name: "Vivanta Guwahati", type: "Luxury Hotel + Spa" },
+        2: { city: "Kaziranga", name: "IORA – The Retreat", type: "Luxury Jungle Resort" },
+        3: { city: "Shillong", name: "Ri Kynjai", type: "Boutique Lakeside Resort" },
+        4: { city: "Cherrapunji", name: "Polo Orchid Resort", type: "Premium Nature Resort" },
+        5: { city: "Kohima", name: "Hotel Vivor", type: "Premium Boutique Hotel" },
+        6: { city: "Kohima", name: "Hotel Vivor", type: "Hill-view stay" },
+        7: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
+        8: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
+        9: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
+        10: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
+        11: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
+        12: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
+        13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" },
+        14: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
+    };
+
+    const itineraries = {
+        grand: [
+            { day: 1, title: "Guwahati Arrival", img: "river bramhmaputra.jpg", desc: "Welcome dinner with Assamese cuisine and Brahmaputra cruise." },
+            { day: 2, title: "Guwahati to Kaziranga", img: "T garden.jpg", desc: "Scenic drive to Kaziranga, tea garden walk, and tribal interaction." },
+            { day: 3, title: "Kaziranga to Shillong", img: "lake boat.jpg", desc: "Drive to Shillong with a stop at Umiam Lake." },
+            { day: 4, title: "Shillong to Cherrapunji", img: "cherrapunji.jpg", desc: "Living Root Bridge trek and Nohkalikai Falls." },
+            { day: 5, title: "Cherrapunji to Kohima", img: "naga heritage village.jpg", desc: "Visit Kohima War Cemetery and Naga Heritage Village." },
+            { day: 6, title: "Dzukou Valley Trek", img: "Dzukou vally.jpg", desc: "Full day guided trek through the alpine meadows of Dzukou." },
+            { day: 7, title: "Kohima to Imphal", img: "manipuri classical Dsnce.jpg", desc: "Evening Manipuri classical dance performance." },
+            { day: 8, title: "Loktak Lake", img: "loktak lake.jpg", desc: "Boat ride through floating phumdis at Keibul Lamjao National Park." },
+            { day: 9, title: "Imphal to Aizawl", img: "Sunset tea overlooking rolling hills.jpg", desc: "Flight to Mizoram and sunset tea overlooking hills." },
+            { day: 10, title: "Reiek Nature Day", img: "REIEK NATURE DAY.jpg", desc: "Nature walk and traditional Mizo lunch at Reiek Village." },
+            { day: 11, title: "Aizawl to Agartala", img: "hotel.jpg", desc: "Flight to Tripura and visit to Ujjayanta Palace." },
+            { day: 12, title: "Neermahal Lake Palace", img: "NEERMAHAL LAKE PALACE.jpg", desc: "Boat ride to India's only water palace on Rudrasagar Lake." },
+            { day: 13, title: "Agartala to Gangtok", img: "GANGTOK.jpg", desc: "Flight to Bagdogra and drive to the luxury mountain capital." },
+            { day: 14, title: "Tsomgo Lake", img: "TSOMGO LAKE.jpg", desc: "Excursion to the high-altitude alpine lake." }
+        ],
+        highlights: [
+            { day: 1, title: "Guwahati Arrival", img: "river bramhmaputra.jpg", desc: "Arrival and local sights." },
+            { day: 2, title: "Kaziranga Wildlife", img: "Lamjao National Park.jpg", desc: "Rhino spotting and jungle lodge stay." },
+            { day: 3, title: "Shillong Hills", img: "lake boat.jpg", desc: "Umiam Lake viewpoints." },
+            { day: 4, title: "Cherrapunji Nature", img: "meghalaya.jpg", desc: "Living Root Bridges and waterfalls." },
+            { day: 5, title: "Nagaland Heritage", img: "naga heritage village.jpg", desc: "Kohima history and culture." },
+            { day: 6, title: "Dzukou Valley", img: "Dzukou vally.jpg", desc: "The signature nature highlight trek." },
+            { day: 7, title: "Departure", img: "GANGTOK.jpg", desc: "End of the highlights tour." }
+        ],
+        luxury: [] // Will mirror Grand but with 'Luxury' label in JS
+    };
+    itineraries.luxury = [...itineraries.grand]; // Reuse grand itinerary for demo
+
+    let currentSlide = 0;
+
+    function openTour(type) {
+        const data = itineraries[type];
+        currentSlide = 0;
+        let html = `<div class="itinerary-slider">`;
+        
+        data.forEach((item, index) => {
+            const hotel = hotelData[item.day] || { name: "Premium Property", type: "Handpicked" };
+            html += `
+                <div class="day-slide ${index === 0 ? 'active' : ''}" id="slide-${index}">
+                    <h2>Day ${item.day}: ${item.title}</h2>
+                    <img src="${item.img}" class="slide-img" onerror="this.src='https://via.placeholder.com/800x400?text=Image+Coming+Soon'">
+                    <p style="padding: 1rem 0;">${item.desc}</p>
+                    <div class="hotel-info">
+                        <strong><i class="fas fa-bed"></i> Accommodation:</strong><br>
+                        ${hotel.name} (${hotel.type})
                     </div>
                 </div>
-            `).join('');
-            c.innerHTML = `
-                <img src="${t.banner}" class="itinerary-img">
-                <h2 style="font-size:1.8rem;font-weight:700;">${t.title}</h2>
-                <p style="color:#999;text-transform:uppercase;font-size:0.7rem;margin-bottom:2rem;">${t.states}</p>
-                ${daysHtml}
-                <button onclick="closeModal()" style="background:#1B5E42;color:#fff;padding:0.7rem 2rem;margin-top:2rem;cursor:pointer;">Close</button>
             `;
-            document.getElementById('itineraryModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('itineraryModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        window.addEventListener('scroll', () => {
-            document.getElementById('topnav').style.background = window.scrollY > 60 ? 'rgba(10, 15, 24, 0.95)' : 'rgba(10, 15, 24, 0.88)';
         });
-    </script>
+
+        html += `
+            <div class="nav-arrows">
+                <button class="arrow" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="arrow" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>`;
+
+        document.getElementById('modalBody').innerHTML = html;
+        document.getElementById('tourModal').style.display = 'block';
+    }
+
+    function changeSlide(direction) {
+        const slides = document.querySelectorAll('.day-slide');
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('tourModal').style.display = 'none';
+    }
+
+    // Close modal on click outside
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('tourModal')) {
+            closeModal();
+        }
+    }
+</script>
+
 </body>
 </html>
