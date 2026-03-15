@@ -17,15 +17,10 @@
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 5%; height: 68px;
-            background: rgba(10, 15, 24, 0);
-            backdrop-filter: blur(0px);
-            border-bottom: 1px solid rgba(201,144,60,0);
-            transition: all 0.4s ease;
-        }
-        .top-nav.scrolled {
-            background: rgba(10, 15, 24, 0.92);
+            background: rgba(10, 15, 24, 0.88);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(201,144,60,0.2);
+            transition: background 0.3s;
         }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: #fff; letter-spacing: 2px; text-decoration: none; }
         .nav-logo span { color: #C9903C; }
@@ -50,39 +45,62 @@
         .hero-desc { font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(240,230,211,0.82); line-height: 1.8; max-width: 680px; margin: 0 auto 1rem; animation: fadeUp 0.8s 0.3s ease both; }
         .hero-tagline { font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; color: #7eccc0; font-weight: 600; margin-bottom: 2.8rem; animation: fadeUp 0.8s 0.38s ease both; }
         .hero-btn-row { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.8s 0.48s ease both; }
-        
-        /* ── SECTIONS ── */
+        .btn-gold { background: #C9903C; color: #0F1724; padding: 1rem 2.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; border: 2px solid #C9903C; text-decoration: none; transition: all 0.2s; display: inline-block; }
+        .btn-gold:hover { background: transparent; color: #C9903C; }
+        .btn-outline-white { background: transparent; color: rgba(255,255,255,0.88); padding: 1rem 2.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; border: 2px solid rgba(255,255,255,0.35); text-decoration: none; transition: all 0.2s; display: inline-block; }
+        .btn-outline-white:hover { border-color: #fff; color: #fff; }
+        .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; animation: bounce 2.5s ease-in-out infinite; z-index: 2; }
+        .hero-scroll::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(201,144,60,0.6), transparent); }
+
+        /* ── ABOUT ── */
         .about-section { position: relative; padding: 7rem 5%; background: url('hotel and nature view.jpg') center/cover no-repeat fixed; }
         .about-section::before { content: ''; position: absolute; inset: 0; background: rgba(4,12,8,0.84); }
         .about-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .section-label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: #C9903C; display: block; margin-bottom: 0.7rem; }
         .section-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.2rem; }
         .stat-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,144,60,0.25); border-radius: 4px; padding: 1.8rem 1rem; backdrop-filter: blur(8px); }
 
+        /* ── PHILOSOPHY ── */
+        .philosophy-section { background: #0F1724; padding: 7rem 5%; }
+        .vmu-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; }
+
+        /* ── TOURS ── */
         .tours-section { position: relative; padding: 7rem 5%; background: url('boutique hotel property.jpg') center/cover no-repeat fixed; }
         .tours-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,12,20,0.90), rgba(10,15,24,0.94)); }
-        .tours-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
-        .pkg-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; backdrop-filter: blur(12px); transition: transform 0.3s; }
-        .pkg-card:hover { transform: translateY(-6px); border-color: rgba(201,144,60,0.5); }
+        .pkg-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; backdrop-filter: blur(12px); transition: transform 0.3s, border-color 0.3s, background 0.3s; }
+        .pkg-card:hover { transform: translateY(-6px); border-color: rgba(201,144,60,0.5); background: rgba(255,255,255,0.11); }
         .pkg-card.featured { border: 2px solid #C9903C; background: rgba(201,144,60,0.09); transform: scale(1.04); }
 
         /* ── EXPERIENCES ── */
         .exp-section { position: relative; padding: 7rem 5%; background: url('cherrapunji.jpg') center/cover no-repeat fixed; }
         .exp-section::before { content: ''; position: absolute; inset: 0; background: rgba(3,14,8,0.82); }
         .exp-card { position: relative; overflow: hidden; border-radius: 8px; height: 340px; cursor: pointer; }
-        .exp-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .exp-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+        .exp-card:hover img { transform: scale(1.08); }
         .exp-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,14,8,0.94) 0%, rgba(4,14,8,0.2) 55%, transparent 100%); }
         .exp-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
+
+        /* ── DIFFERENCE ── */
+        .diff-section { background: #f5f0e8; padding: 5rem 5%; }
+        .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #ddd6c8; border-radius: 4px; overflow: hidden; }
+        .diff-item { padding: 2.5rem 1.8rem; text-align: center; background: #fff; border-right: 1px solid #ddd6c8; }
+        .diff-item:last-child { border-right: none; }
 
         /* ── FOOTER ── */
         .footer-bg { position: relative; background: url('hotel in tea farm.jpg') center/cover no-repeat; }
         .footer-bg::before { content: ''; position: absolute; inset: 0; background: rgba(3,18,10,0.93); }
-        
+        .footer-inner { position: relative; z-index: 1; padding: 6rem 5%; text-align: center; }
+
         /* ── MODAL ── */
         .modal { display: none; position: fixed; z-index: 300; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); overflow-y: auto; }
-        .itinerary-img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem; }
+
+        .gold-strip { height: 3px; background: linear-gradient(to right, transparent, #C9903C, #E8C97A, #C9903C, transparent); }
 
         @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(7px); } }
+
+        @media (max-width: 1024px) { .diff-grid { grid-template-columns: 1fr 1fr; } .diff-item { border-bottom: 1px solid #ddd6c8; } .diff-item:nth-child(2) { border-right: none; } }
+        @media (max-width: 768px) { .nav-links-list { display: none; } .vmu-grid { grid-template-columns: 1fr; } .pkg-card.featured { transform: scale(1); } .diff-grid { grid-template-columns: 1fr; } .diff-item { border-right: none; } }
     </style>
 </head>
 <body>
@@ -110,13 +128,14 @@
                 <a href="#contact" class="btn-outline-white">Plan My Journey</a>
             </div>
         </div>
+        <div class="hero-scroll">Scroll</div>
     </header>
 
-    <div style="height: 3px; background: linear-gradient(to right, transparent, #C9903C, transparent);"></div>
+    <div class="gold-strip"></div>
 
     <section class="about-section" id="about">
         <div class="about-inner">
-            <span style="font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: #C9903C;">India's Premium NE Specialist</span>
+            <span class="section-label">India's Only Premium NE Specialist</span>
             <h2 class="section-title">Where the Wild Northeast Begins</h2>
             <p style="color:rgba(240,230,211,0.72);font-size:1.05rem;line-height:1.85;max-width:660px;margin:0 auto 3.5rem;">
                 HRRS Tours specializes in small-group journeys that bridge global travelers with the untouched majesty of Northeast India.
@@ -124,88 +143,102 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
                 <div class="stat-box">
                     <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">16+</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.42);">Naga Tribes</p>
+                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Naga Tribes</p>
                 </div>
                 <div class="stat-box">
                     <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">30+</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.42);">Tribal Guides</p>
+                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Tribal Guides</p>
                 </div>
                 <div class="stat-box">
                     <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">100%</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.42);">Plastic Free</p>
+                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Plastic Free</p>
                 </div>
                 <div class="stat-box">
                     <p style="font-size:2.4rem;font-weight:700;color:#E8C97A;">15</p>
-                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.42);">Max Group Size</p>
+                    <p style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.42);margin-top:0.4rem;">Max Group Size</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="philosophy" style="background:#0F1724; padding: 7rem 5%;">
-        <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:4rem;">
-            <div style="display:flex; flex-direction:column; justify-content:center;">
-                <h2 style="font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem;">Our Purpose</h2>
-                <div style="height: 4px; width: 60px; background: #C9903C; margin-bottom: 2rem;"></div>
-                <p style="color: rgba(240,230,211,0.6); line-height: 1.8;">Established by Group 5 at IIM Sirmaur, our strategic model ensures community-first operations combined with operational excellence.</p>
+    <div class="gold-strip"></div>
+
+    <section id="philosophy" class="philosophy-section">
+        <div class="vmu-grid">
+            <div style="background:#1B5E42;padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:#fff;line-height:1;">HRRS</div>
+                <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#C9903C;letter-spacing:8px;margin-bottom:1rem;">TOURS</div>
+                <div style="height:2px;background:#C9903C;width:80%;margin-bottom:1.2rem;"></div>
+                <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(240,230,211,0.8);font-size:1rem;">Hills · River · Road · Services</p>
             </div>
-            <div class="flex flex-col gap-8">
-                <div style="padding-left:1.5rem; border-left: 2px solid #D4682A;">
-                    <h4 style="color:#D4682A; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem; margin-bottom:0.5rem;">Vision</h4>
-                    <p style="color:rgba(255,255,255,0.9); font-size:1.1rem;">Establish NE India as a globally recognised premium experiential destination.</p>
+            <div style="background:#1A2640;padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:2.5rem;">
+                <div style="padding-left:1.5rem;border-left:4px solid #D4682A;">
+                    <h4 style="font-size:0.9rem;font-weight:700;color:#D4682A;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">Vision</h4>
+                    <p style="font-size:1.1rem;color:rgba(240,230,211,0.82);">Establish NE India as a globally recognised premium experiential destination.</p>
                 </div>
-                <div style="padding-left:1.5rem; border-left: 2px solid #2D7D6F;">
-                    <h4 style="color:#2D7D6F; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem; margin-bottom:0.5rem;">Mission</h4>
-                    <p style="color:rgba(255,255,255,0.9); font-size:1.1rem;">Curated small-group journeys that generate community value and transformative traveller connections.</p>
+                <div style="padding-left:1.5rem;border-left:4px solid #2D7D6F;">
+                    <h4 style="font-size:0.9rem;font-weight:700;color:#2D7D6F;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">Mission</h4>
+                    <p style="font-size:1.1rem;color:rgba(240,230,211,0.82);">Curated small-group journeys that generate community value and transformative traveller connections.</p>
                 </div>
-                <div style="padding-left:1.5rem; border-left: 2px solid #C9903C;">
-                    <h4 style="color:#C9903C; text-transform:uppercase; letter-spacing:2px; font-size:0.8rem; margin-bottom:0.5rem;">USP</h4>
-                    <p style="color:rgba(255,255,255,0.9); font-size:1.1rem;">India's premium NE India specialist, tribal guide networks, eco-lodges, full permit expertise.</p>
+                <div style="padding-left:1.5rem;border-left:4px solid #C9903C;">
+                    <h4 style="font-size:0.9rem;font-weight:700;color:#C9903C;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">USP</h4>
+                    <p style="font-size:1.1rem;color:rgba(240,230,211,0.82);">India's premium NE India specialist, tribal guide networks, eco-lodges, full permit expertise.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="gold-strip"></div>
 
     <section class="tours-section" id="tours">
         <div class="tours-inner">
             <div style="text-align:center;margin-bottom:3.5rem;">
-                <h2 class="section-title">Three Formats. One Region.</h2>
+                <span class="section-label">Curated Collections</span>
+                <h2 class="section-title">Three Formats. One Region. Infinite Depth.</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 items-start">
                 <div class="pkg-card">
                     <img src="cherrapunji.jpg" style="width:100%;height:220px;object-fit:cover;">
                     <div style="padding:1.8rem;">
-                        <span style="color:#C9903C; text-transform:uppercase; font-size:0.7rem; font-weight:700;">7 Days</span>
-                        <h3 style="font-size:1.5rem; color:#fff; margin-top:0.5rem;">NE Highlights</h3>
-                        <p style="font-size:1.9rem; font-weight:700; color:#E8C97A; margin: 1rem 0;">₹1,49,000</p>
-                        <button onclick="openModal('highlights')" class="bg-stone-900 w-full text-white py-3 rounded hover:bg-black transition">View Itinerary</button>
+                        <span style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9903C;">Entry Point</span>
+                        <h3 style="font-size:1.5rem;color:#fff;margin:0.6rem 0 0.3rem;">NE Highlights</h3>
+                        <p style="font-size:0.82rem;color:rgba(240,230,211,0.5);font-style:italic;margin-bottom:1.2rem;">7 Days · 3 States</p>
+                        <p style="font-size:1.9rem;font-weight:700;color:#E8C97A;">₹1,49,000</p>
+                        <button onclick="openModal('highlights')" class="btn-gold mt-6" style="width:100%;">View Itinerary</button>
                     </div>
                 </div>
                 <div class="pkg-card featured">
                     <img src="Dzukou vally.jpg" style="width:100%;height:220px;object-fit:cover;">
                     <div style="padding:1.8rem;">
-                        <span style="color:#C9903C; text-transform:uppercase; font-size:0.7rem; font-weight:700;">15 Days</span>
-                        <h3 style="font-size:1.5rem; color:#fff; margin-top:0.5rem;">Grand Northeast</h3>
-                        <p style="font-size:1.9rem; font-weight:700; color:#E8C97A; margin: 1rem 0;">₹3,28,000</p>
-                        <button onclick="openModal('grand')" class="bg-[#1B5E42] w-full text-white py-3 rounded hover:bg-emerald-900 transition">View Itinerary</button>
+                        <span style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9903C;">Flagship</span>
+                        <h3 style="font-size:1.5rem;color:#fff;margin:0.6rem 0 0.3rem;font-style:italic;">Grand Northeast</h3>
+                        <p style="font-size:0.82rem;color:rgba(240,230,211,0.5);font-style:italic;margin-bottom:1.2rem;">15 Days · 7 States</p>
+                        <p style="font-size:1.9rem;font-weight:700;color:#E8C97A;">₹3,28,000</p>
+                        <button onclick="openModal('grand')" class="btn-gold mt-6" style="width:100%;background:#1B5E42;border-color:#1B5E42;color:#fff;">View Itinerary</button>
                     </div>
                 </div>
                 <div class="pkg-card">
                     <img src="boutique hotel.jpg" style="width:100%;height:220px;object-fit:cover;">
                     <div style="padding:1.8rem;">
-                        <span style="color:#C9903C; text-transform:uppercase; font-size:0.7rem; font-weight:700;">Private</span>
-                        <h3 style="font-size:1.5rem; color:#fff; margin-top:0.5rem;">Private Luxury</h3>
-                        <p style="font-size:1.9rem; font-weight:700; color:#D4682A; margin: 1rem 0;">₹5,40,000</p>
-                        <button onclick="openModal('luxury')" class="bg-stone-900 w-full text-white py-3 rounded hover:bg-black transition">View Itinerary</button>
+                        <span style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D4682A;">Top Tier</span>
+                        <h3 style="font-size:1.5rem;color:#fff;margin:0.6rem 0 0.3rem;">Private Luxury</h3>
+                        <p style="font-size:0.82rem;color:rgba(240,230,211,0.5);font-style:italic;margin-bottom:1.2rem;">15 Days · 7 States</p>
+                        <p style="font-size:1.9rem;font-weight:700;color:#D4682A;">₹5,40,000</p>
+                        <button onclick="openModal('luxury')" class="btn-gold mt-6" style="width:100%;background:#7a3a10;border-color:#7a3a10;color:#fff;">View Itinerary</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="gold-strip"></div>
+
     <section class="exp-section" id="experiences">
         <div class="exp-inner">
-            <h2 class="section-title text-center mb-12">Signature Moments</h2>
+            <div style="text-align:center;margin-bottom:3.5rem;">
+                <span class="section-label">Signature Moments</span>
+                <h2 class="section-title">Moments Found Nowhere Else</h2>
+            </div>
             <div class="grid md:grid-cols-3 gap-5">
                 <div class="exp-card">
                     <img src="hotel and nature view.jpg">
@@ -228,29 +261,87 @@
                     <div class="exp-overlay"></div>
                     <div class="exp-text">
                         <div style="font-weight:700; color:#fff;">Tribal Immersion</div>
-                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Naga Villages</div>
+                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Naga Heritage</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <img src="Dzukou vally.jpg">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div style="font-weight:700; color:#fff;">Dzükou Valley Walk</div>
+                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Nagaland Frontier</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <img src="GANGTOK.jpg">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div style="font-weight:700; color:#fff;">Alpine Lake View</div>
+                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Gangtok · Sikkim</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <img src="boutique hotel property.jpg">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div style="font-weight:700; color:#fff;">Heritage Stays</div>
+                        <div style="color:#E8C97A; font-size:0.7rem; text-transform:uppercase;">Traditional Luxury</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="gold-strip"></div>
+
+    <section class="diff-section">
+        <div style="max-width:1100px;margin:0 auto;text-align:center;">
+            <p class="section-label">Why Book With HRRS</p>
+            <h2 class="section-title" style="color:#1a1a1a;margin-bottom:3rem;">The HRRS Difference</h2>
+            <div class="diff-grid">
+                <div class="diff-item">
+                    <div style="font-size:2.2rem;margin-bottom:1rem;">📋</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Permit Experts</h4>
+                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">Inner Line Permits fully managed for Nagaland, Manipur, and Mizoram.</p>
+                </div>
+                <div class="diff-item">
+                    <div style="font-size:2.2rem;margin-bottom:1rem;">👥</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Small Groups</h4>
+                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">Maximum 12–15 travellers per departure for genuine personalization.</p>
+                </div>
+                <div class="diff-item">
+                    <div style="font-size:2.2rem;margin-bottom:1rem;">🤝</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Community Trust</h4>
+                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">30+ tribal guide partnerships and exclusive eco-lodge access.</p>
+                </div>
+                <div class="diff-item">
+                    <div style="font-size:2.2rem;margin-bottom:1rem;">🌿</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:#1B5E42;margin-bottom:0.7rem;">Sustainability</h4>
+                    <p style="font-size:0.85rem;color:#666;line-height:1.7;">Plastic-free operations and carbon-offset travel as standard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gold-strip"></div>
+
     <footer class="footer-bg" id="contact">
         <div class="footer-inner">
-            <h2 style="font-size:3rem; font-weight:700; color:#fff;">Begin Your Expedition</h2>
-            <div style="max-width:420px; margin:3rem auto;">
-                <input type="text" placeholder="Your Name" class="footer-input">
-                <input type="email" placeholder="Email Address" class="footer-input">
+            <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:0.8rem;">Begin Your Expedition</h2>
+            <p style="font-style:italic;font-size:1.2rem;color:rgba(232,201,122,0.72);margin-bottom:3rem;">Let us design your perfect Northeast India journey.</p>
+            <div style="max-width:420px;margin:0 auto;">
+                <input type="text" placeholder="Your Name" class="footer-input" style="width:100%;padding:1rem;background:rgba(255,255,255,0.08);border:1px solid #C9903C;color:#fff;margin-bottom:1rem;outline:none;">
+                <input type="email" placeholder="Email Address" class="footer-input" style="width:100%;padding:1rem;background:rgba(255,255,255,0.08);border:1px solid #C9903C;color:#fff;margin-bottom:1rem;outline:none;">
                 <button class="footer-btn">Request Consultation</button>
             </div>
-            <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; letter-spacing:4px; text-transform:uppercase;">Hills · River · Road · Services · IIM Sirmaur</p>
+            <p style="margin-top:3.5rem;font-size:0.65rem;color:rgba(255,255,255,0.18);letter-spacing:4px;text-transform:uppercase;">Group 5 · IIM Sirmaur · 2026</p>
         </div>
     </footer>
 
     <div id="itineraryModal" class="modal px-4 py-12">
-        <div style="background:#fff; max-width:860px; margin:0 auto; border-radius:4px; overflow:hidden; position:relative;">
-            <button onclick="closeModal()" style="position:absolute; top:1.2rem; right:1.5rem; font-size:2rem; color:#bbb;">×</button>
-            <div id="modalContent" style="padding:3rem; color:#333;"></div>
+        <div style="background:#fff;max-width:860px;margin:0 auto;border-radius:4px;overflow:hidden;position:relative;">
+            <button onclick="closeModal()" style="position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:2.2rem;color:#bbb;cursor:pointer;">&times;</button>
+            <div id="modalContent" style="padding:3rem;color:#333;"></div>
         </div>
     </div>
 
@@ -262,25 +353,25 @@
                 banner: "cherrapunji.jpg",
                 days: [
                     { d: "Day 1", h: "Vivanta Guwahati", x: "Brahmaputra Sunset Cruise" },
-                    { d: "Day 2", h: "IORA Kaziranga", x: "Jungle Lodge & Tea Garden Walk" },
-                    { d: "Day 3", h: "Ri Kynjai Shillong", x: "Dawn Rhino Safari" }
+                    { d: "Day 2", h: "IORA Kaziranga", x: "Wildlife Safari" },
+                    { d: "Day 3", h: "Ri Kynjai Shillong", x: "Umiam Lake View" }
                 ]
             },
             grand: {
                 title: "Grand Northeast (15 Days)",
-                states: "7 States",
+                states: "7 States of the NE",
                 banner: "Dzukou vally.jpg",
                 days: [
-                    { d: "D 1-3", h: "Vivanta / IORA", x: "Wildlife & River Culture" },
-                    { d: "D 4-6", h: "Ri Kynjai / Vivor", x: "Cloud Forests & Alpine Treks" }
+                    { d: "Day 1-3", h: "Vivanta / IORA", x: "Wildlife & River Culture" },
+                    { d: "Day 4-6", h: "Ri Kynjai / Hotel Vivor", x: "Alpine Treks & Cloud Forests" }
                 ]
             },
             luxury: {
                 title: "Private Luxury (15 Days)",
-                states: "Strictly Private",
+                states: "Full 7-State Private Expedition",
                 banner: "boutique hotel.jpg",
                 days: [
-                    { d: "Private", h: "Heritage Lodges", x: "Fully private Toyota Fortuner fleet & dedicated guide." }
+                    { d: "Bespoke", h: "Heritage Stays", x: "Private vehicle and cultural expert throughout." }
                 ]
             }
         };
@@ -289,20 +380,20 @@
             const t = itineraries[key];
             const c = document.getElementById('modalContent');
             let daysHtml = t.days.map(d => `
-                <div style="margin-bottom:1.2rem; border-bottom:1px solid #eee; padding-bottom:1.2rem; display:flex; gap:1rem;">
-                    <div style="font-weight:700; color:#1B5E42;">${d.d}</div>
+                <div style="margin-bottom:1.2rem;border-bottom:1px solid #eee;padding-bottom:1.2rem;display:flex;gap:1.5rem;">
+                    <div style="font-weight:700;color:#1B5E42;">${d.d}</div>
                     <div>
                         <div style="font-weight:700;">${d.x}</div>
-                        <div style="font-size:0.8rem; color:#666;">Stay: ${d.h}</div>
+                        <div style="font-size:0.85rem;color:#666;">Stay: ${d.h}</div>
                     </div>
                 </div>
             `).join('');
             c.innerHTML = `
                 <img src="${t.banner}" class="itinerary-img">
-                <h2>${t.title}</h2>
-                <p style="margin-bottom:2rem; font-size:0.8rem; color:#999;">${t.states}</p>
+                <h2 style="font-size:1.8rem;font-weight:700;">${t.title}</h2>
+                <p style="color:#999;text-transform:uppercase;font-size:0.7rem;margin-bottom:2rem;">${t.states}</p>
                 ${daysHtml}
-                <button onclick="closeModal()" style="background:#1B5E42; color:#fff; padding:0.7rem 2rem; border-radius:2px; margin-top:2rem;">Close</button>
+                <button onclick="closeModal()" style="background:#1B5E42;color:#fff;padding:0.7rem 2rem;margin-top:2rem;cursor:pointer;">Close</button>
             `;
             document.getElementById('itineraryModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
@@ -314,7 +405,7 @@
         }
 
         window.addEventListener('scroll', () => {
-            document.getElementById('topnav').classList.toggle('scrolled', window.scrollY > 60);
+            document.getElementById('topnav').style.background = window.scrollY > 60 ? 'rgba(10, 15, 24, 0.95)' : 'rgba(10, 15, 24, 0.88)';
         });
     </script>
 </body>
