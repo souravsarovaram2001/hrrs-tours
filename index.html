@@ -48,6 +48,16 @@
         .pkg-card:hover { transform: translateY(-6px); border-color: rgba(201,144,60,0.5); }
         .pkg-card.featured { border: 2px solid #C9903C; background: rgba(201,144,60,0.09); }
 
+        /* ── EXPERIENCES (Signature Moments) ── */
+        .exp-card { position: relative; overflow: hidden; border-radius: 8px; height: 340px; cursor: pointer; }
+        .exp-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+        .exp-card:hover img { transform: scale(1.08); }
+        .exp-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,14,8,0.94) 0%, rgba(4,14,8,0.2) 55%, transparent 100%); }
+        .exp-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
+        .exp-title-card { font-size: 1.08rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+        .exp-loc { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: #E8C97A; font-weight: 600; }
+        .exp-topbar { position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2; }
+
         /* ── MODAL & SLIDER ── */
         .modal { display: none; position: fixed; z-index: 300; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
         .modal-content { background: #FAF6EE; color: #1a1a1a; max-width: 900px; margin: 3rem auto; border-radius: 8px; position: relative; overflow: hidden; }
@@ -58,7 +68,6 @@
         
         .slider-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
         .arrow-btn { background: #C9903C; color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .arrow-btn:hover { background: #0F1724; }
 
         .hotel-tag { background: #e9e2d5; border-left: 4px solid #C9903C; padding: 1rem; margin-top: 1rem; font-size: 0.9rem; }
         .gold-strip { height: 3px; background: linear-gradient(to right, transparent, #C9903C, #E8C97A, #C9903C, transparent); }
@@ -80,13 +89,13 @@
     </nav>
 
     <header class="hero" id="home">
-        <div class="px-5 max-width-[900px]">
+        <div class="px-5">
             <div class="text-[#C9903C] text-[0.7rem] tracking-[4px] uppercase mb-4">Hills · River · Road · Services</div>
             <h1 class="hero-main-title">Explore Northeast India</h1>
             <div class="hero-italic-line">Like Never Before</div>
             <p class="text-lg text-white/80 max-w-2xl mx-auto mb-8">India's premium NE India specialist. Curating small-group journeys that generate community value and transformative connections.</p>
             <div class="flex gap-4 justify-center">
-                <a href="#tours" class="bg-[#C9903C] text-[#0F1724] px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-transparent hover:text-[#C9903C] border-2 border-[#C9903C] transition">View Packages</a>
+                <a href="#tours" class="bg-[#C9903C] text-[#0F1724] px-8 py-3 font-bold uppercase tracking-widest text-xs border-2 border-[#C9903C]">View Packages</a>
             </div>
         </div>
     </header>
@@ -121,10 +130,9 @@
                 <span class="text-[#C9903C] tracking-[4px] uppercase text-xs font-bold">Curated Collections</span>
                 <h2 class="text-4xl mt-2">Select Your Expedition</h2>
             </div>
-
             <div class="grid md:grid-cols-3 gap-10">
                 <div class="pkg-card">
-                    <img src="Dzukou vally.jpg" class="w-full h-56 object-cover" alt="NE Highlights">
+                    <img src="Dzukou vally.jpg" class="w-full h-56 object-cover">
                     <div class="p-8">
                         <h3 class="text-2xl mb-2">NE Highlights</h3>
                         <p class="text-white/50 text-xs italic mb-4">7 Days · 3 States</p>
@@ -132,9 +140,8 @@
                         <button onclick="openModal('highlights')" class="w-full bg-[#C9903C] text-[#0F1724] py-3 font-bold uppercase text-xs tracking-widest">View Itinerary</button>
                     </div>
                 </div>
-
                 <div class="pkg-card featured">
-                    <img src="loktak lake.jpg" class="w-full h-56 object-cover" alt="Grand Northeast">
+                    <img src="loktak lake.jpg" class="w-full h-56 object-cover">
                     <div class="p-8">
                         <span class="bg-[#C9903C] text-[#0F1724] text-[10px] px-2 py-1 uppercase font-bold absolute top-4 left-4">Most Popular</span>
                         <h3 class="text-2xl mb-2 italic">Grand Northeast</h3>
@@ -143,9 +150,8 @@
                         <button onclick="openModal('grand')" class="w-full bg-[#1B5E42] text-white py-3 font-bold uppercase text-xs tracking-widest">View Itinerary</button>
                     </div>
                 </div>
-
                 <div class="pkg-card">
-                    <img src="boutique hotel property.jpg" class="w-full h-56 object-cover" alt="Private Luxury">
+                    <img src="boutique hotel property.jpg" class="w-full h-56 object-cover">
                     <div class="p-8">
                         <h3 class="text-2xl mb-2">Private Luxury</h3>
                         <p class="text-white/50 text-xs italic mb-4">15 Days · Bespoke</p>
@@ -157,71 +163,120 @@
         </div>
     </section>
 
+    <section class="py-20 px-5 bg-[#0a0f18]" id="experiences">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-[#C9903C] tracking-[4px] uppercase text-xs font-bold">Signature Moments</span>
+                <h2 class="text-4xl mt-2 text-white">Found Nowhere Else</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="exp-card">
+                    <div class="exp-topbar" style="background:#C9903C;"></div>
+                    <img src="Lamjao National Park.jpg" alt="Kaziranga rhino safari">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div class="exp-title-card">Dawn Rhino Safari</div>
+                        <div class="exp-loc">Kaziranga · Assam</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-topbar" style="background:#2D7D6F;"></div>
+                    <img src="cherrapunji.jpg" alt="Living root bridge">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div class="exp-title-card">Living Root Bridge Trek</div>
+                        <div class="exp-loc">Cherrapunji · Meghalaya</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-topbar" style="background:#D4682A;"></div>
+                    <img src="Dzukou vally.jpg" alt="Dzukou Valley trek">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div class="exp-title-card">Dzükou Valley Alpine Walk</div>
+                        <div class="exp-loc">Kohima · Nagaland</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-topbar" style="background:#C9903C;"></div>
+                    <img src="loktak lake.jpg" alt="Loktak Lake boat">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div class="exp-title-card">Loktak Phumdi Boat Ride</div>
+                        <div class="exp-loc">Loktak Lake · Manipur</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-topbar" style="background:#2D7D6F;"></div>
+                    <img src="NEERMAHAL LAKE PALACE.jpg" alt="Neermahal Palace">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div class="exp-title-card">Neermahal Lake Palace</div>
+                        <div class="exp-loc">Rudrasagar · Tripura</div>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-topbar" style="background:#D4682A;"></div>
+                    <img src="manipuri classical Dsnce.jpg" alt="Manipuri Dance">
+                    <div class="exp-overlay"></div>
+                    <div class="exp-text">
+                        <div class="exp-title-card">Manipuri Classical Dance</div>
+                        <div class="exp-loc">Imphal · Manipur</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="itineraryModal" class="modal">
         <div class="modal-content">
             <button onclick="closeModal()" class="absolute top-5 right-5 text-3xl text-gray-400 hover:text-black z-50">&times;</button>
-            <div id="modalSlides">
-                </div>
+            <div id="modalSlides"></div>
         </div>
     </div>
 
     <footer class="bg-[#050a10] py-20 px-5 text-center" id="contact">
         <div class="max-w-md mx-auto">
-            <h2 class="text-3xl mb-10">Begin Your Expedition</h2>
-            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-[#C9903C]/30 p-4 mb-4 text-white">
-            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-[#C9903C]/30 p-4 mb-4 text-white">
+            <h2 class="text-3xl mb-10 text-white">Begin Your Expedition</h2>
+            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-[#C9903C]/30 p-4 mb-4 text-white outline-none">
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-[#C9903C]/30 p-4 mb-4 text-white outline-none">
             <button class="w-full bg-[#C9903C] text-[#0a0f18] py-4 font-bold uppercase tracking-widest">Request Consultation</button>
             <p class="mt-10 text-white/20 text-[10px] tracking-[4px] uppercase">Hills · River · Road · Services · 2026</p>
         </div>
     </footer>
 
     <script>
-        // Data derived from hotel_names.txt and alldata.txt
         const hotelData = {
             1: { city: "Guwahati", name: "Vivanta Guwahati", type: "Luxury Hotel + Spa" },
             2: { city: "Kaziranga", name: "IORA – The Retreat", type: "Luxury Jungle Resort" },
             3: { city: "Shillong", name: "Ri Kynjai", type: "Boutique Lakeside Resort" },
             4: { city: "Cherrapunji", name: "Polo Orchid Resort", type: "Premium Nature Resort" },
             5: { city: "Kohima", name: "Hotel Vivor", type: "Premium Boutique Hotel" },
-            6: { city: "Kohima", name: "Hotel Vivor", type: "Hill-view stay" },
             7: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
-            8: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
             9: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
-            10: { city: "Aizawl", name: "Hotel Regency", type: "Boutique Hotel" },
             11: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
-            12: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
-            13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" },
-            14: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
+            13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
         };
 
         const packageItineraries = {
             grand: [
                 { day: 1, title: "Guwahati Arrival", img: "river bramhmaputra.jpg", desc: "Welcome dinner and Brahmaputra sunset cruise." },
                 { day: 2, title: "Kaziranga Safari", img: "Lamjao National Park.jpg", desc: "Explore the world's largest one-horned rhino population." },
-                { day: 3, title: "Drive to Shillong", img: "lake boat.jpg", desc: "Arrive at the Scotland of the East, overlooking Umiam Lake." },
                 { day: 4, title: "Cherrapunji Trails", img: "cherrapunji.jpg", desc: "Double-decker living root bridges and cloud-forest treks." },
-                { day: 5, title: "Nagaland Heritage", img: "naga heritage village.jpg", desc: "Cultural immersion at Kisama Heritage Village." },
                 { day: 6, title: "Dzukou Valley", img: "Dzukou vally.jpg", desc: "Breathtaking trek through alpine meadows." },
-                { day: 7, title: "Imphal Arrival", img: "manipuri classical Dsnce.jpg", desc: "Evening Manipuri classical dance performance." },
                 { day: 8, title: "Loktak Lake", img: "loktak lake.jpg", desc: "Boat ride on the floating phumdis." },
-                { day: 9, title: "Mizoram Arrival", img: "Sunset tea overlooking rolling hills.jpg", desc: "Sunset tea overlooking the Aizawl hills." },
-                { day: 10, title: "Reiek Nature", img: "REIEK NATURE DAY.jpg", desc: "Guided nature walk in Reiek Heritage Village." },
-                { day: 11, title: "Tripura Exploration", img: "hotel.jpg", desc: "Travel to Agartala and visit the Ujjayanta Palace." },
                 { day: 12, title: "Neermahal Palace", img: "NEERMAHAL LAKE PALACE.jpg", desc: "A boat ride to India's unique water palace." },
-                { day: 13, title: "Sikkim Mountains", img: "GANGTOK.jpg", desc: "Drive to Gangtok for luxury spa relaxation." },
                 { day: 14, title: "Tsomgo Lake", img: "TSOMGO LAKE.jpg", desc: "Final high-altitude excursion to Tsomgo." }
             ],
             highlights: [
                 { day: 1, title: "Guwahati Start", img: "river bramhmaputra.jpg", desc: "Gateway to the Northeast." },
                 { day: 2, title: "Kaziranga Jungle", img: "Lamjao National Park.jpg", desc: "Rhino safari and tea garden walks." },
-                { day: 3, title: "Shillong Hills", img: "meghalaya.jpg", desc: "Scenic mountain drive and lakeside stay." },
                 { day: 4, title: "Root Bridges", img: "cherrapunji.jpg", desc: "Living architecture of Meghalaya." },
-                { day: 5, title: "Nagaland Arrival", img: "naga heritage village.jpg", desc: "Tribal guide introduction and heritage walk." },
-                { day: 6, title: "Dzukou Peak", img: "Dzukou vally.jpg", desc: "The signature alpine trek of the East." },
-                { day: 7, title: "Farewell", img: "hotel and nature view.jpg", desc: "Departure from Guwahati." }
-            ]
+                { day: 6, title: "Dzukou Peak", img: "Dzukou vally.jpg", desc: "The signature alpine trek of the East." }
+            ],
+            luxury: []
         };
-        packageItineraries.luxury = [...packageItineraries.grand]; // Same itinerary, luxury level service.
+        packageItineraries.luxury = [...packageItineraries.grand];
 
         let currentSlideIdx = 0;
         let activeData = [];
@@ -246,21 +301,18 @@
                 const hotel = hotelData[item.day] || { name: "Boutique Eco-Lodge", type: "Premium Stay" };
                 html += `
                     <div class="day-slide ${idx === 0 ? 'active' : ''}" id="slide-${idx}">
-                        <div class="slide-img-container">
-                            <img src="${item.img}" class="slide-img" onerror="this.src='https://via.placeholder.com/800x450?text=Nature+View'">
-                        </div>
+                        <div class="slide-img-container"><img src="${item.img}" class="slide-img"></div>
                         <div class="mt-6">
-                            <h4 class="text-[#C9903C] text-xs font-bold uppercase tracking-widest mb-1">Day ${item.day}</h4>
+                            <h4 class="text-[#C9903C] text-xs font-bold uppercase tracking-widest mb-1">Stop ${idx+1}</h4>
                             <h2 class="text-3xl mb-4">${item.title}</h2>
                             <p class="text-gray-600 mb-6">${item.desc}</p>
                             <div class="hotel-tag">
                                 <i class="fa fa-bed mr-2 text-[#C9903C]"></i>
-                                <strong>Stay:</strong> ${hotel.name} — <span class="italic text-gray-500">${hotel.type}</span>
+                                <strong>Stay:</strong> ${hotel.name}
                             </div>
                         </div>
                         <div class="slider-nav">
                             <button class="arrow-btn" onclick="moveSlide(-1)"><i class="fa fa-arrow-left"></i></button>
-                            <span class="text-xs font-bold text-gray-400">Day ${idx+1} / ${activeData.length}</span>
                             <button class="arrow-btn" onclick="moveSlide(1)"><i class="fa fa-arrow-right"></i></button>
                         </div>
                     </div>
