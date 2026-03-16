@@ -396,6 +396,23 @@
         13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" },
         14: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
         };
+
+        const hotelData1 = {
+        1: { city: "Guwahati", name: "Radisson Blu", type: "Luxury Hotel + Spa" },
+        2: { city: "Kaziranga", name: "Diphlu River Lodge", type: "Luxury Jungle Resort" },
+        3: { city: "Shillong", name: "Courtyard by Marriott", type: "Boutique Lakeside Resort" },
+        4: { city: "Cherrapunji", name: "Jiva Resort", type: "Premium Nature Resort" },
+        5: { city: "Kohima", name: "La Colline Resort", type: "Premium Boutique Hotel" },
+        6: { city: "Kohima", name: "La Colline Resort", type: "Hill-view stay" },
+        7: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
+        8: { city: "Imphal", name: "Classic Grande", type: "Premium Luxury Hotel" },
+        9: { city: "Aizawl", name: "Floria Aizawl", type: "Boutique Hotel" },
+        10: { city: "Aizawl", name: "Floria Aizawl", type: "Boutique Hotel" },
+        11: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
+        12: { city: "Agartala", name: "Hotel Polo Towers", type: "Premium Hotel" },
+        13: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" },
+        14: { city: "Gangtok", name: "Mayfair Spa Resort", type: "Luxury Spa Resort" }
+        };
         
         const packageItineraries = {
         grand: [
@@ -423,14 +440,31 @@
         { day: 6, title: "Dzukou Valley", img: "Dzukou vally.jpg", desc: "The signature nature highlight trek." },
         { day: 7, title: "Departure", img: "GANGTOK.jpg", desc: "End of the highlights tour." }
         ],
-        luxury: [] // Will mirror Grand but with 'Luxury' label in JS
+        luxury: [
+        { day: 1, title: "Guwahati Arrival", img: "lake_guwahati.jpg", desc: "Welcome dinner with Assamese cuisine and Brahmaputra cruise." },
+        { day: 2, title: "Guwahati to Kaziranga", img: "T garden.jpg", desc: "Scenic drive to Kaziranga, tea garden walk, and tribal interaction." },
+        { day: 3, title: "Kaziranga to Shillong", img: "lake boat.jpg", desc: "Drive to Shillong with a stop at Umiam Lake." },
+        { day: 4, title: "Shillong to Cherrapunji", img: "cherrapunji.jpg", desc: "Living Root Bridge trek and Nohkalikai Falls." },
+        { day: 5, title: "Cherrapunji to Kohima", img: "naga heritage village.jpg", desc: "Visit Kohima War Cemetery and Naga Heritage Village." },
+        { day: 6, title: "Dzukou Valley Trek", img: "Dzukou vally.jpg", desc: "Full day guided trek through the alpine meadows of Dzukou." },
+        { day: 7, title: "Kohima to Imphal", img: "manipuri classical Dsnce.jpg", desc: "Evening Manipuri classical dance performance." },
+        { day: 8, title: "Loktak Lake", img: "loktak lake.jpg", desc: "Boat ride through floating phumdis at Keibul Lamjao National Park." },
+        { day: 9, title: "Imphal to Aizawl", img: "Sunset tea overlooking rolling hills.jpg", desc: "Flight to Mizoram and sunset tea overlooking hills." },
+        { day: 10, title: "Reiek Nature Day", img: "REIEK NATURE DAY.jpg", desc: "Nature walk and traditional Mizo lunch at Reiek Village." },
+        { day: 11, title: "Aizawl to Agartala", img: "hotel.jpg", desc: "Flight to Tripura and visit to Ujjayanta Palace." },
+        { day: 12, title: "Neermahal Lake Palace", img: "NEERMAHAL LAKE PALACE.jpg", desc: "Boat ride to India's only water palace on Rudrasagar Lake." },
+        { day: 13, title: "Agartala to Gangtok", img: "GANGTOK.jpg", desc: "Flight to Bagdogra and drive to the luxury mountain capital." },
+        { day: 14, title: "Tsomgo Lake", img: "TSOMGO LAKE.jpg", desc: "Excursion to the high-altitude alpine lake." }
+        ] // Will mirror Grand but with 'Luxury' label in JS
         };
-        packageItineraries.luxury = [...packageItineraries.grand];
+        //packageItineraries.luxury = [...packageItineraries.grand];
 
         let currentSlideIdx = 0;
         let activeData = [];
+        let activePackage = "";
 
         function openModal(pkg) {
+            activePackage = pkg;
             activeData = packageItineraries[pkg];
             currentSlideIdx = 0;
             renderSlides();
@@ -447,7 +481,7 @@
             const container = document.getElementById('modalSlides');
             let html = "";
             activeData.forEach((item, idx) => {
-                const hotel = hotelData[item.day] || { name: "Boutique Eco-Lodge", type: "Premium Stay" };
+                const hotel = (activePackage === "luxury" ? hotelData1 : hotelData)[item.day] || { name: "Boutique Eco-Lodge", type: "Premium Stay" };
                 html += `
                     <div class="day-slide ${idx === 0 ? 'active' : ''}" id="slide-${idx}">
                         <div class="slide-img-container"><img src="${item.img}" class="slide-img"></div>
