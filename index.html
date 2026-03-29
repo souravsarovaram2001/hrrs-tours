@@ -110,6 +110,10 @@
         .social-circle:hover{
         box-shadow:0 0 10px rgba(201,144,60,0.6);
         }
+    video {
+    transform: translateZ(0);
+    will-change: transform;
+    }
     </style>
 </head>
 <body>
@@ -126,7 +130,8 @@
     </nav>
 
     <header class="hero" id="home">
-        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <video muted loop playsinline preload="none" poster="meghalaya.jpg"
+        class="absolute top-0 left-0 w-full h-full object-cover z-0" id="heroVideo">
         <source src="no audio small.mp4" type="video/mp4">
         </video>
 
@@ -520,6 +525,15 @@
         window.onclick = function(e) {
             if (e.target == document.getElementById('itineraryModal')) closeModal();
         }
+    document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("heroVideo");
+
+    setTimeout(() => {
+        video.setAttribute("preload", "auto");
+        video.load();
+        video.play();
+    }, 1500);
+    });
     </script>
 </body>
 </html>
