@@ -587,13 +587,6 @@
 
 if (expScroll) {
 
-    // Mouse wheel → horizontal scroll
-   expScroll.addEventListener('wheel', (e) => {
-        if (Math.abs(e.deltaX) === 0) {
-            expScroll.scrollLeft += e.deltaY;
-        }
-    });
-
     // Drag scroll
     let isDown = false;
     let startX;
