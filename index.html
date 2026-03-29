@@ -129,7 +129,8 @@
         display: none;
     }
     #expScroll {
-        scroll-snap-type: x mandatory;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
     }
 
     .exp-card {
@@ -587,8 +588,10 @@
 if (expScroll) {
 
     // Mouse wheel → horizontal scroll
-    expScroll.addEventListener('wheel', (e) => {
-        expScroll.scrollLeft += e.deltaY * 0.8;
+   expScroll.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) === 0) {
+            expScroll.scrollLeft += e.deltaY;
+        }
     });
 
     // Drag scroll
