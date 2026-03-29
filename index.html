@@ -33,7 +33,8 @@
         .hero {
             min-height: 100vh; position: relative;
             display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(8,13,22,0.6), rgba(8,13,22,0.6)), url('meghalaya.jpg') center/cover no-repeat fixed;
+            background: #000;
+            overflow: hidden;
         }
         .hero-main-title { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 0.4rem; }
         .hero-italic-line { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 400; font-style: italic; color: #E8C97A; line-height: 1.1; margin-bottom: 1.4rem; }
@@ -125,7 +126,12 @@
     </nav>
 
     <header class="hero" id="home">
-        <div class="px-5">
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="no audio small.mp4" type="video/mp4">
+        </video>
+
+        <div class="absolute inset-0 bg-[rgba(8,13,22,0.6)] z-10"></div>
+        <div class="px-5 relative z-20">
             <div class="text-[#C9903C] text-[0.7rem] tracking-[4px] uppercase mb-4">Hills · River · Road · Services</div>
             <h1 class="hero-main-title">Explore Northeast India</h1>
             <div class="hero-italic-line">Like Never Before</div>
