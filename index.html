@@ -614,14 +614,6 @@ if (expScroll) {
         expScroll.scrollLeft = scrollLeft - walk;
     });
 }
-
-expScroll.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - expScroll.offsetLeft;
-    const walk = (x - startX) * 2;
-    expScroll.scrollLeft = scrollLeft - walk;
-});
     });
     </script>
 </body>
