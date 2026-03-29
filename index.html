@@ -114,6 +114,9 @@
     transform: translateZ(0);
     will-change: transform;
     }
+    #videoSmall, #videoFull {
+    transition: opacity 1s ease;
+    }
     </style>
 </head>
 <body>
@@ -130,9 +133,17 @@
     </nav>
 
     <header class="hero" id="home">
-        <video muted loop playsinline preload="none" poster="meghalaya.jpg"
-        class="absolute top-0 left-0 w-full h-full object-cover z-0" id="heroVideo">
-        <source src="no audio small.mp4" type="video/mp4">
+        <!-- Short fast-loading video -->
+        <video autoplay muted loop playsinline
+        class="absolute top-0 left-0 w-full h-full object-cover z-0" id="videoSmall">
+            <source src="short clip.mp4" type="video/mp4">
+        </video>
+
+        <!-- Full video (loads later) -->
+        <video muted loop playsinline preload="none"
+        class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-0"
+        id="videoFull">
+            <source src="no audio small.mp4" type="video/mp4">
         </video>
 
         <div class="absolute inset-0 bg-[rgba(8,13,22,0.6)] z-10"></div>
@@ -526,13 +537,31 @@
             if (e.target == document.getElementById('itineraryModal')) closeModal();
         }
     document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("heroVideo");
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fullVideo = document.getElementById("videoFull");
+        const smallVideo = document.getElementById("videoSmall");
 
-    setTimeout(() => {
-        video.setAttribute("preload", "auto");
-        video.load();
-        video.play();
-    }, 1500);
+         // Start loading full video after slight delay
+        setTimeout(() => {
+            fullVideo.setAttribute("preload", "auto");
+            fullVideo.load();
+
+            fullVideo.oncanplaythrough = () => {
+                fullVideo.play();
+
+                // Fade transition
+                fullVideo.style.opacity = "1";
+                   smallVideo.style.opacity = "0";
+
+                // Stop small video after transition
+                setTimeout(() => {
+                    smallVideo.pause();
+                }, 1000);
+            };
+        }, 1500);
+    });
+    </script>
     });
     </script>
 </body>
