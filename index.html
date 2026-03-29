@@ -588,8 +588,7 @@ if (expScroll) {
 
     // Mouse wheel → horizontal scroll
     expScroll.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        expScroll.scrollLeft += e.deltaY;
+        expScroll.scrollLeft += e.deltaY * 0.8;
     });
 
     // Drag scroll
