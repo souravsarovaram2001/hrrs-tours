@@ -135,6 +135,13 @@
     .exp-card {
         scroll-snap-align: start;
     }
+        #expScroll {
+    cursor: grab;
+}
+
+#expScroll:active {
+    cursor: grabbing;
+}
     </style>
 </head>
 <body>
@@ -577,24 +584,36 @@
         // Horizontal scroll using mouse wheel
     const expScroll = document.getElementById('expScroll');
 
-    if (expScroll) {
-        expScroll.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            expScroll.scrollLeft += e.deltaY;
-        });
-    }
-        let isDown = false;
-let startX;
-let scrollLeft;
+if (expScroll) {
 
-expScroll.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - expScroll.offsetLeft;
-    scrollLeft = expScroll.scrollLeft;
-});
+    // Mouse wheel → horizontal scroll
+    expScroll.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        expScroll.scrollLeft += e.deltaY;
+    });
 
-expScroll.addEventListener('mouseleave', () => isDown = false);
-expScroll.addEventListener('mouseup', () => isDown = false);
+    // Drag scroll
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    expScroll.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - expScroll.offsetLeft;
+        scrollLeft = expScroll.scrollLeft;
+    });
+
+    expScroll.addEventListener('mouseleave', () => isDown = false);
+    expScroll.addEventListener('mouseup', () => isDown = false);
+
+    expScroll.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - expScroll.offsetLeft;
+        const walk = (x - startX) * 2;
+        expScroll.scrollLeft = scrollLeft - walk;
+    });
+}
 
 expScroll.addEventListener('mousemove', (e) => {
     if (!isDown) return;
